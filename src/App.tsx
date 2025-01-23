@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     const fetchQuotes = async () => {
-      const response = await fetch("/Quotes/sample.json");
+      const response = await fetch("./Quotes/sample.json");
       const data: Quote[] = await response.json();
       const shuffled = data.sort(() => 0.5 - Math.random());
       setSelectedQuestions(shuffled.slice(0, 10));
