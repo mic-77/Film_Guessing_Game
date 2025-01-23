@@ -1,0 +1,74 @@
+[
+  {
+    "question": "Why so serious?",
+    "movie": "The Dark Knight",
+    "wrongOptions": ["Inception", "Interstellar", "Batman Begins"],
+    "type": "quote"
+  },
+  {
+    "question": "May the Force be with you.",
+    "movie": "Star Wars: Episode V - The Empire Strikes Back",
+    "wrongOptions": [
+      "Star Wars: Episode IV - A New Hope",
+      "Star Wars: Episode VI - Return of the Jedi",
+      "Rogue One: A Star Wars Story"
+    ],
+    "type": "quote"
+  },
+  {
+    "question": "I'm gonna make him an offer he can't refuse.",
+    "movie": "The Godfather",
+    "wrongOptions": ["Goodfellas", "Scarface", "The Godfather: Part II"],
+    "type": "quote"
+  },
+  {
+    "question": "Here's looking at you, kid.",
+    "movie": "Casablanca",
+    "wrongOptions": [
+      "Gone with the Wind",
+      "The Maltese Falcon",
+      "Citizen Kane"
+    ],
+    "type": "quote"
+  },
+  {
+    "question": "You can't handle the truth!",
+    "movie": "A Few Good Men",
+    "wrongOptions": ["The Departed", "Glengarry Glen Ross", "The Insider"],
+    "type": "quote"
+  },
+  {
+    "question": "I'll be back.",
+    "movie": "The Terminator",
+    "wrongOptions": ["Terminator 2: Judgment Day", "Predator", "RoboCop"],
+    "type": "quote"
+  },
+  {
+    "question": "Life is like a box of chocolates. You never know what you're gonna get.",
+    "movie": "Forrest Gump",
+    "wrongOptions": ["The Green Mile", "Cast Away", "Saving Private Ryan"],
+    "type": "quote"
+  },
+  {
+    "question": "There's no place like home.",
+    "movie": "The Wizard of Oz",
+    "wrongOptions": [
+      "Gone with the Wind",
+      "Mary Poppins",
+      "Singin' in the Rain"
+    ],
+    "type": "quote"
+  },
+  {
+    "question": "I see dead people.",
+    "movie": "The Sixth Sense",
+    "wrongOptions": ["Signs", "Unbreakable", "Split"],
+    "type": "quote"
+  },
+  {
+    "question": "Keep your friends close, but your enemies closer.",
+    "movie": "The Godfather: Part II",
+    "wrongOptions": ["The Godfather", "Goodfellas", "Scarface"],
+    "type": "quote"
+  }
+]

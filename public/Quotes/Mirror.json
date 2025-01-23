@@ -1,0 +1,62 @@
+[
+  {
+    "question": "MIRROR成員姜濤在電影中飾演一名年輕歌手，這部電影是哪一部？",
+    "movie": "《阿媽有咗第二個》",
+    "wrongOptions": ["《季前賽》", "《狂舞派3》", "《假冒女團》"],
+    "type": "mirror"
+  },
+  {
+    "question": "MIRROR成員姜濤、呂爵安和陳卓賢在電影中飾演籃球愛好者，這部電影是哪一部？",
+    "movie": "《季前賽》",
+    "wrongOptions": ["《阿媽有咗第二個》", "《狂舞派3》", "《假冒女團》"],
+    "type": "mirror"
+  },
+  {
+    "question": "MIRROR成員陳瑞輝在電影中飾演主要角色之一，這部電影是哪一部？",
+    "movie": "《大象的告別式》",
+    "wrongOptions": ["《季前賽》", "《阿媽有咗第二個》", "《狂舞派3》"],
+    "type": "mirror"
+  },
+  {
+    "question": "MIRROR成員王智德在電影中飾演主要角色之一，這部電影是哪一部？",
+    "movie": "《一樓一會》",
+    "wrongOptions": ["《季前賽》", "《阿媽有咗第二個》", "《狂舞派3》"],
+    "type": "mirror"
+  },
+  {
+    "question": "MIRROR成員楊樂文在電影中飾演男主角Dave，這部電影是哪一部？",
+    "movie": "《狂舞派3》",
+    "wrongOptions": ["《季前賽》", "《阿媽有咗第二個》", "《假冒女團》"],
+    "type": "mirror"
+  },
+  {
+    "question": "MIRROR成員盧瀚霆在電影中飾演一名偶像團體成員，這部電影是哪一部？",
+    "movie": "《假冒女團》",
+    "wrongOptions": ["《季前賽》", "《阿媽有咗第二個》", "《狂舞派3》"],
+    "type": "mirror"
+  },
+  {
+    "question": "MIRROR成員柳應廷在電影中飾演配角，這部電影是哪一部？",
+    "movie": "《阿媽有咗第二個》",
+    "wrongOptions": ["《季前賽》", "《狂舞派3》", "《假冒女團》"],
+    "type": "mirror"
+  },
+  {
+    "question": "MIRROR成員江𤒹生在電影中飾演一名年輕男子，這部電影是哪一部？",
+    "movie": "《忽然心動》",
+    "wrongOptions": ["《季前賽》", "《阿媽有咗第二個》", "《狂舞派3》"],
+    "type": "mirror"
+  },
+  {
+    "question": "MIRROR成員呂爵安在電影中飾演主要角色之一，這部電影是哪一部？",
+    "movie": "《死屍死時四十四》",
+    "wrongOptions": ["《季前賽》", "《阿媽有咗第二個》", "《狂舞派3》"],
+    "type": "mirror"
+  },
+  {
+    "question": "MIRROR成員李駿傑在電影中飾演配角，這部電影是哪一部？",
+    "movie": "《我的天堂城市》",
+    "wrongOptions": ["《季前賽》", "《阿媽有咗第二個》", "《狂舞派3》"],
+    "type": "mirror"
+  }
+]

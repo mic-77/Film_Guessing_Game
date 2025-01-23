@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 interface Quote {
-  quote: string;
+  question: string;
   movie: string;
   wrongOptions: string[];
+  type?: string; // Optional type property
 }
+
+// Define available categories
+const categories = ["港產片", "Mirror", "IMDB Top 250", "All Categories"];
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
@@ -16,17 +20,51 @@ function App() {
   const [shuffledOptions, setShuffledOptions] = useState<string[]>([]);
   const [isGameOver, setIsGameOver] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]); // Default to first category
+
+  const fetchQuotes = async (category: string) => {
+    if (category === "All Categories") {
+      // Fetch from all categories
+      const allQuotes: Quote[] = [];
+      for (const cat of categories.slice(0, -1)) {
+        // Exclude "ALL" from the categories
+        const response = await fetch(`./Quotes/${cat}.json`);
+        if (!response.ok) {
+          console.error(
+            `Failed to fetch quotes for category: ${cat}, Status: ${response.status}`
+          );
+          continue; // Skip this category if there's an error
+        }
+        try {
+          const data: Quote[] = await response.json();
+          allQuotes.push(...data);
+        } catch (error) {
+          console.error(`Error parsing JSON for category: ${cat}`, error);
+        }
+      }
+      const shuffled = allQuotes.sort(() => 0.5 - Math.random());
+      setSelectedQuestions(shuffled.slice(0, 10));
+    } else {
+      const response = await fetch(`./Quotes/${category}.json`);
+      if (!response.ok) {
+        console.error(
+          `Failed to fetch quotes for category: ${category}, Status: ${response.status}`
+        );
+        return; // Exit if there's an error
+      }
+      try {
+        const data: Quote[] = await response.json();
+        const shuffled = data.sort(() => 0.5 - Math.random());
+        setSelectedQuestions(shuffled.slice(0, 10));
+      } catch (error) {
+        console.error(`Error parsing JSON for category: ${category}`, error);
+      }
+    }
+  };
 
   useEffect(() => {
-    const fetchQuotes = async () => {
-      const response = await fetch("./Quotes/sample.json");
-      const data: Quote[] = await response.json();
-      const shuffled = data.sort(() => 0.5 - Math.random());
-      setSelectedQuestions(shuffled.slice(0, 10));
-    };
-
-    fetchQuotes();
-  }, []);
+    fetchQuotes(selectedCategory); // Fetch quotes when category changes
+  }, [selectedCategory]);
 
   useEffect(() => {
     if (selectedQuestions.length > 0) {
@@ -56,15 +94,31 @@ function App() {
     }, 1000);
   };
 
+  const handleCategoryChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setSelectedCategory(event.target.value);
+  };
+
   return (
     <>
       {!gameStarted ? (
         <div>
-          <h1>Welcome to My Game!</h1>
+          <h1>Welcome to Film Guessing Game!</h1>
           <p>
-            Get ready for an exciting adventure. Click the button below to
-            start!
+            Pick which category you want to play and click the button below to
+            start to answer 10 questions!
           </p>
+          <div>
+            <h4>Choose a Category</h4>
+            <select value={selectedCategory} onChange={handleCategoryChange}>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+          </div>
           <div className="card">
             <button onClick={() => setGameStarted(true)}>Start Game</button>
           </div>
@@ -77,7 +131,8 @@ function App() {
           {isGameOver ? (
             <div>
               <h2>
-                Game Over! Your score: {score} out of {selectedQuestions.length}
+                Game Over! Your score for {selectedCategory}: {score} out of{" "}
+                {selectedQuestions.length}
               </h2>
               <button
                 onClick={() => {
@@ -92,7 +147,7 @@ function App() {
             </div>
           ) : (
             <>
-              <h2>{selectedQuestions[currentQuoteIndex].quote}</h2>
+              <h2>{selectedQuestions[currentQuoteIndex].question}</h2>
               <div>
                 {shuffledOptions.map((option) => (
                   <button
