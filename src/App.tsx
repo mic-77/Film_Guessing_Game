@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import "./index.css";
 
 interface Quote {
   question: string;
@@ -21,6 +22,7 @@ function App() {
   const [isGameOver, setIsGameOver] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState(categories[0]); // Default to first category
+  const [buttonsDisabled, setButtonsDisabled] = useState(false); // New state for button disabling
 
   const fetchQuotes = async (category: string) => {
     if (category === "All Categories") {
@@ -76,15 +78,19 @@ function App() {
   }, [currentQuoteIndex, selectedQuestions]);
 
   const handleAnswer = (answer: string) => {
+    if (buttonsDisabled) return; // Prevent further actions if buttons are disabled
     setSelectedAnswer(answer);
     const currentQuestion = selectedQuestions[currentQuoteIndex];
     if (answer === currentQuestion.movie) {
       setScore((prevScore) => prevScore + 1);
     }
 
+    setButtonsDisabled(true); // Disable buttons after an answer is selected
+
     // Move to the next question after a delay
     setTimeout(() => {
       setSelectedAnswer("");
+      setButtonsDisabled(false); // Re-enable buttons after delay
       if (currentQuoteIndex + 1 < selectedQuestions.length) {
         setCurrentQuoteIndex((prevIndex) => prevIndex + 1);
       } else {
@@ -129,7 +135,7 @@ function App() {
             Question {currentQuoteIndex + 1} of {selectedQuestions.length}
           </h2>
           {isGameOver ? (
-            <div>
+            <div className="game-over">
               <h2>
                 Game Over! Your score for {selectedCategory}: {score} out of{" "}
                 {selectedQuestions.length}
@@ -148,20 +154,19 @@ function App() {
           ) : (
             <>
               <h2>{selectedQuestions[currentQuoteIndex].question}</h2>
-              <div>
+              <div className="button-container">
                 {shuffledOptions.map((option) => (
                   <button
                     key={option}
                     onClick={() => handleAnswer(option)}
-                    style={{
-                      backgroundColor:
-                        selectedAnswer === option
-                          ? "lightblue" // Highlight selected answer
-                          : selectedAnswer && correctAnswer === option // Check if the option is the correct answer after selection
-                          ? "lightgreen" // Highlight correct answer
-                          : "white", // Default color
-                      color: "black", // Change text color to black for visibility
-                    }}
+                    disabled={buttonsDisabled} // Disable button if buttonsDisabled is true
+                    className={`answer-button ${
+                      selectedAnswer === option
+                        ? option === correctAnswer
+                          ? "correct"
+                          : "incorrect"
+                        : ""
+                    }`} // Add classes based on answer
                   >
                     {option}
                   </button>
@@ -171,8 +176,7 @@ function App() {
                 <p>
                   {selectedAnswer === selectedQuestions[currentQuoteIndex].movie
                     ? "Correct!"
-                    : "Wrong! The correct answer was: " +
-                      selectedQuestions[currentQuoteIndex].movie}
+                    : "Wrong!"}
                 </p>
               )}
             </>
