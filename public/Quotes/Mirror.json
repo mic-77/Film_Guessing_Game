@@ -12,15 +12,15 @@
     "type": "mirror"
   },
   {
-    "question": "MIRROR成員陳瑞輝在電影中飾演主要角色之一，這部電影是哪一部？",
-    "movie": "《大象的告別式》",
-    "wrongOptions": ["《季前賽》", "《阿媽有咗第二個》", "《狂舞派3》"],
+    "question": "哪一位Mirror成員曾經出演過電影（非全體成員共演）？",
+    "movie": "邱傲然",
+    "wrongOptions": ["陳瑞輝", "王智德", "以上皆無"],
     "type": "mirror"
   },
   {
-    "question": "MIRROR成員王智德在電影中飾演主要角色之一，這部電影是哪一部？",
-    "movie": "《一樓一會》",
-    "wrongOptions": ["《季前賽》", "《阿媽有咗第二個》", "《狂舞派3》"],
+    "question": "MIRROR成員呂爵安並未出演以下哪一齣電影？",
+    "movie": "《命案》",
+    "wrongOptions": ["《盜月者》", "《過時·過節》", "《爸爸》"],
     "type": "mirror"
   },
   {
@@ -50,13 +50,13 @@
   {
     "question": "MIRROR成員呂爵安在電影中飾演主要角色之一，這部電影是哪一部？",
     "movie": "《死屍死時四十四》",
-    "wrongOptions": ["《季前賽》", "《阿媽有咗第二個》", "《狂舞派3》"],
+    "wrongOptions": ["《七月返歸》", "《阿媽有咗第二個》", "《狂舞派3》"],
     "type": "mirror"
   },
   {
-    "question": "MIRROR成員李駿傑在電影中飾演配角，這部電影是哪一部？",
-    "movie": "《我的天堂城市》",
-    "wrongOptions": ["《季前賽》", "《阿媽有咗第二個》", "《狂舞派3》"],
+    "question": "MIRROR成員陳卓賢在電影中飾演主角，這部電影是哪一部？",
+    "movie": "《久別重逢》",
+    "wrongOptions": ["《我的天堂城市》", "《阿媽有咗第二個》", "《釀魂》"],
     "type": "mirror"
   }
 ]
