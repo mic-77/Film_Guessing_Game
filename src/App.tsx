@@ -97,7 +97,7 @@ function App() {
         // Set game over state when all questions have been answered
         setIsGameOver(true);
       }
-    }, 1000);
+    }, 1500);
   };
 
   const handleCategoryChange = (
@@ -176,7 +176,8 @@ function App() {
                 <p>
                   {selectedAnswer === selectedQuestions[currentQuoteIndex].movie
                     ? "Correct!"
-                    : "Wrong!"}
+                    : "Wrong! The correct answer is " +
+                      selectedQuestions[currentQuoteIndex].movie}
                 </p>
               )}
             </>
